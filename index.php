@@ -16,6 +16,11 @@
     for($j = 0; $j < $rows; ++$j){
         $row = $result->fetch_array(MYSQLI_ASSOC);
         echo '<br>';
+        ?>
+        <img src="<?php echo 'images/'  .($row['image']) ?>">
+        <br>
+        <br>
+        <?php 
         echo 'file Name:' .htmlspecialchars($row['fileNAme']) . '<br>';
         echo 'url:' .htmlspecialchars($row['url']) . '<br>';
         //add url's to array
@@ -25,17 +30,17 @@
         echo 'year:' .htmlspecialchars($row['year']) . '<br>';
         ?>
          <button><a href ="<?php echo $urlArr[$j] ?>"><?php echo ($row['title']) ?></a></button> <br>
-         
+        
+        
      <?php 
     } 
     //print url test array
     //echo $urlArr[1];
 
    // ?>
-
+    
 
       
-
    
 
 </body>
