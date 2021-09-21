@@ -17,22 +17,27 @@
         $row = $result->fetch_array(MYSQLI_ASSOC);
         echo '<br>';
         ?>
-        <img src="<?php echo 'images/'  .($row['image']) ?>">
+         
         <br>
         <br>
         <?php 
-        echo 'file Name:' .htmlspecialchars($row['fileNAme']) . '<br>';
-        echo 'url:' .htmlspecialchars($row['url']) . '<br>';
+       // echo 'file Name:' .htmlspecialchars($row['fileNAme']) . '<br>';
+       // echo 'url:' .htmlspecialchars($row['url']) . '<br>';
         //add url's to array
         array_push($urlArr, ($row['url'])); 
-        echo 'title:' .htmlspecialchars($row['title']) . '<br>';
-        array_push($titleArr, ($row['title'])); 
-        echo 'year:' .htmlspecialchars($row['year']) . '<br>';
-        ?>
-         <button><a href ="<?php echo $urlArr[$j] ?>"><?php echo ($row['title']) ?></a></button> <br>
+        array_push($titleArr, ($row['title'])); ?>
+        <a href ="<?php echo 'collection/' .str_replace(' ', '', $titleArr[$j]) .'.php'  ?>"> <img src="<?php echo 'images/'  .($row['image']) ?>"> </a> <br>
+        
+        <?php 
+       
+        echo '<b>'. htmlspecialchars($row['title']) . ' (' .htmlspecialchars($row['year']) .')' .'</b>'  .'<br>';
+       
+      
+         
+    
         
         
-     <?php 
+     
     } 
     //print url test array
     //echo $urlArr[1];
